@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="checkPasswordBox" class="container-sm bg-primary bg-opacity-25 p-3 rounded my-2">
+        <h1 class="display-6 text-black px-2 py-3 bg-warning bg-opacity-50 rounded">Password Strength Checker</h1>
+        <div class="form-floating my-2">
+            <input type="password" class="form-control" id="passBox" placeholder="Enter your password">
+            <label for="passBox">Enter your password</label>
+        </div>
+
+        <div class="form-check form-switch mx-2 my-3">
+            <input class="form-check-input" type="checkbox" name="showPass" id="showPassCheck" role="switch">
+            <label class="form-check-label" for="showPassCheck">Show Password</label>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="checkPasswordBtn">Check</button>
+    </div>
+
+    <!-- Result Password -->
+    <div id="resultPasswordBox" class="hide container-sm bg-primary bg-opacity-25 p-3 rounded my-2 carousel-fade">
+        <h6 class="text-black px-2 py-3 bg-dark text-white rounded">Result</h6>
+        <div class="bg-white p-3 rounded">
+            <p class="lead">Your Password Contains: </p>
+            <ul type="none">
+                <li>Length: <strong><span id="resultPasswordLength"></span></strong></li>
+                <li>Uppercase Letters: <strong><span id="resultPasswordUpper"></span></strong></li>
+                <li>Lowercase Letters: <strong><span  id="resultPasswordLower"></span></strong></li>
+                <li>Numbers: <strong><span  id="resultPasswordNumber"></span></strong></li>
+                <li>Symbols: <strong><span id="resultPasswordSymbol"></span></strong></li>
+            </ul>
+        </div>
+
+        <h6 id="resultSrength" class="px-2 py-3 rounded my-3"></h6>
+    </div>
+
+    <div class="container-sm bg-success bg-opacity-25 p-3 rounded">
+        <h6 class="display-6 text-black px-2 py-3 bg-warning bg-opacity-50 rounded">Suggest password</h6>
+
+        <div class="mod-pass">
+            <p class="lead">Please select the password mode.</p>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="form-check form-switch mx-2">
+                    <input class="form-check-input" type="radio" name="sPass" id="rEasy" role="switch">
+                    <label class="form-check-label" for="rEasy">Easy</label>
+                </div>
+
+                <div class="form-check form-switch mx-2">
+                    <input class="form-check-input" type="radio" name="sPass" id="rMed" role="switch">
+                    <label class="form-check-label" for="rMed">Medium</label>
+                </div>
+
+                <div class="form-check form-switch mx-2">
+                    <input class="form-check-input" type="radio" name="sPass" id="rStrong" role="switch">
+                    <label class="form-check-label" for="rStrong">Strong</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-floating my-2">
+            <input class="form-control" disabled type="number" name="sPass" id="lenSP"
+                placeholder="Enter password length">
+            <label for="lenSP">Enther password length</label>
+        </div>
+
+        <button type="button" disabled class="btn btn-primary" id="suggestBtn">Suggest</button>
+    </div>
+
+    <!-- Suggested Password -->
+    <div id="suggestedPasswordBox" class="hide container-sm bg-primary bg-opacity-25 p-3 rounded my-2  carousel-fade">
+        <h6 class="text-black px-2 py-3 bg-danger-subtle bg-opacity-50 rounded">Suggested password</h6>
+        <p class="lead bg-white p-3 rounded" id="suggestedPasswordInput"></p>
+        <button type="button" class="btn btn-primary" id="copyBtn">Copy</button>
+        <button type="button" class="btn btn-primary" id="checkSuggestedPass">Check Password</button>
+
+        <div class="alert alert-success alert-dismissible fade hide show my-2" role="alert" id="copyAlert">
+            <strong>Success!</strong> Password copied to clipboard.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <!-- Botstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Custrom JS -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
